@@ -4,7 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-
+import { BookComponent } from './book/book-details/book.component';
+import { BookListComponent } from './book/book-list/book-list.component';
+import { BookService } from './services/book.service';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -16,9 +18,10 @@ import { AppRoutingModule } from './app-routing.module';
     HttpModule,
   ],
   declarations: [
-    AppComponent
+    AppComponent,
+    BookComponent
   ],
-  providers: [  ],
-  bootstrap: [ AppComponent ]
+  providers: [ BookService ],
+  bootstrap: [ AppComponent ],
 })
 export class AppModule { }

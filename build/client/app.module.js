@@ -11,6 +11,9 @@ const platform_browser_1 = require("@angular/platform-browser");
 const forms_1 = require("@angular/forms");
 const http_1 = require("@angular/http");
 const app_component_1 = require("./app.component");
+const book_component_1 = require("./book/book-details/book.component");
+const book_list_component_1 = require("./book/book-list/book-list.component");
+const book_service_1 = require("./services/book.service");
 const app_routing_module_1 = require("./app-routing.module");
 let AppModule = class AppModule {
 };
@@ -23,9 +26,11 @@ AppModule = __decorate([
             http_1.HttpModule,
         ],
         declarations: [
-            app_component_1.AppComponent
+            app_component_1.AppComponent,
+            book_list_component_1.BookListComponent,
+            book_component_1.BookComponent
         ],
-        providers: [],
+        providers: [book_service_1.BookService],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

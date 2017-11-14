@@ -9,14 +9,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
 let AppComponent = class AppComponent {
     constructor() {
-        this.title = '';
+        this.title = 'sdadas';
     }
 };
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: `
-  `,
+        templateUrl: 'app.component.html'
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;

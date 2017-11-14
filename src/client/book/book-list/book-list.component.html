@@ -1,0 +1,108 @@
+<p>sadsd</p>
+<p>dsadasds</p>
+<h1>{{title}}</h1>
+<!-- <nav>
+  <a routerLink="/book" routerLinkActive="active">Books</a>
+</nav> -->
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="app.component.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <!-- <navbar> </navbar> -->
+
+    <main role="main" class="container">
+
+      <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-12 col-md-9">
+          <p class="float-right d-md-none">
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="offcanvas">Toggle nav</button>
+          </p>
+          <div class="row">
+            <div class="col-6 col-lg-4">
+                <tr *ngFor="let book of books | searchingFilter: search | sortingFilter: sort" [class.selected]="book === selectedBook" (click)="onSelect(book)"[routerLink]="['/book', book._id]">
+                    <td> {{book.title}} </td>
+                    <td>{{book.author}}</td>
+                </tr>
+            </div>
+              <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="col-6 col-md-3 sidebar-offcanvas" id="sidebar">
+          <div class="list-group">
+            <a href="#" class="list-group-item active">Link</a>
+            <a href="#" class="list-group-item">Link</a>
+            <a href="#" class="list-group-item">Link</a>
+            <a href="#" class="list-group-item">Link</a>
+            <a href="#" class="list-group-item">Link</a>
+            <a href="#" class="list-group-item">Link</a>
+            <a href="#" class="list-group-item">Link</a>
+            <a href="#" class="list-group-item">Link</a>
+            <a href="#" class="list-group-item">Link</a>
+            <a href="#" class="list-group-item">Link</a>
+          </div>
+        </div> -->
+      </div>
+
+      <hr>
+
+    </main>
+
+    <!-- <footer-comp></footer-comp>
+    <p>dsada</p> -->
+  </body>
+
+
+<router-outlet></router-outlet>
+
+<br><br><br>
+<div class="sort-container">
+    <label> Find a book: </label>
+   <input type="text" [(ngModel)]="search" name="search"/>
+  </div> 
+<div class="fil">
+   <div> 
+       <select class="form-control filter-selector" 
+           [value]="sort" 
+           (input)="sort = $event.target.value">
+           <option value="1">Sort A-Z</option>
+           <option value="2">Sort Z-A</option>
+           <option value="3">No filter</option>
+       </select>
+       <table>
+           <thead>
+               <tr>
+                   <td>Title</td>
+                   <td>Author</td>
+                   
+               </tr>
+           </thead>
+           <tbody>
+               
+           </tbody>
+       </table> 
+   </div>
+   <br>
+   Title: <input mdInput placeholder="title" [(ngModel)]="bookTitle" name="bookTitle"/><br>
+   Author: <input type="text" [(ngModel)]="bookAuthor" /><br>
+   Category: <input type="text" [(ngModel)]="bookCategory" /><br>
+   
+   <button (click)="createBook(bookTitle, bookAuthor, bookCategory)">Add a book</button> 
+   <navbar> </navbar>
+   <p>dsdadad</p>
+
+</div>
