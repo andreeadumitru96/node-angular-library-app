@@ -10,25 +10,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
-const router_1 = require("@angular/router");
-const common_1 = require("@angular/common");
+const core_2 = require("@angular/core");
+const book_1 = require("./book");
 const book_service_1 = require("../../services/book.service");
-require("rxjs/add/operator/switchMap");
+// import 'rxjs/add/operator/switchMap';
 let BookComponent = BookComponent_1 = class BookComponent {
-    constructor(bookService, route, location) {
-        this.bookService = bookService;
-        this.route = route;
-        this.location = location;
-    }
+    constructor() { }
     ngOnInit() {
-        this.route.paramMap
-            .switchMap((params) => this.bookService.getBook(params.get('id')))
-            .subscribe(book => this.book = book);
-    }
-    goBack() {
-        this.location.back();
+        // this.route.paramMap
+        // .switchMap((params: ParamMap) => this.bookService.getBook(params.get('id')))
+        // .subscribe(book => this.book = book);
     }
 };
+__decorate([
+    core_2.Input(),
+    __metadata("design:type", book_1.Book)
+], BookComponent.prototype, "book", void 0);
 BookComponent = BookComponent_1 = __decorate([
     core_1.Component({
         selector: 'book',
@@ -36,9 +33,7 @@ BookComponent = BookComponent_1 = __decorate([
         styleUrls: ['./book.component.css'],
         providers: [book_service_1.BookService, BookComponent_1]
     }),
-    __metadata("design:paramtypes", [book_service_1.BookService,
-        router_1.ActivatedRoute,
-        common_1.Location])
+    __metadata("design:paramtypes", [])
 ], BookComponent);
 exports.BookComponent = BookComponent;
 var BookComponent_1;

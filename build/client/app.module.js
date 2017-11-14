@@ -14,7 +14,6 @@ const app_component_1 = require("./app.component");
 const book_component_1 = require("./book/book-details/book.component");
 const book_list_component_1 = require("./book/book-list/book-list.component");
 const book_service_1 = require("./services/book.service");
-const app_routing_module_1 = require("./app-routing.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -22,16 +21,15 @@ AppModule = __decorate([
         imports: [
             platform_browser_1.BrowserModule,
             forms_1.FormsModule,
-            app_routing_module_1.AppRoutingModule,
             http_1.HttpModule,
         ],
         declarations: [
             app_component_1.AppComponent,
-            book_list_component_1.BookListComponent,
-            book_component_1.BookComponent
+            book_component_1.BookComponent,
+            book_list_component_1.BookListComponent
         ],
         providers: [book_service_1.BookService],
-        bootstrap: [app_component_1.AppComponent]
+        bootstrap: [app_component_1.AppComponent],
     })
 ], AppModule);
 exports.AppModule = AppModule;

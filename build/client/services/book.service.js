@@ -33,13 +33,6 @@ let BookService = class BookService {
             .then(response => response.json())
             .catch(this.handleError);
     }
-    createBook(book) {
-        return this.http
-            .post(this.bookUrl, JSON.stringify({ title: book.title, author: book.author, category: book.category, specifications: book.specifications }), { headers: this.headers })
-            .toPromise()
-            .then(res => res.json())
-            .catch(this.handleError);
-    }
     handleError(error) {
         console.error('An error occurred', error);
         return Promise.reject(error.message || error);

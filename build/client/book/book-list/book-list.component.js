@@ -10,12 +10,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
-const book_1 = require("../book-details/book");
 const book_service_1 = require("../../services/book.service");
 let BookListComponent = class BookListComponent {
     constructor(bookService) {
         this.bookService = bookService;
         this.title = 'Library';
+    }
+    ngOnInit() {
+        this.getBooks();
     }
     getBooks() {
         this.bookService.getBooks()
@@ -23,33 +25,8 @@ let BookListComponent = class BookListComponent {
             this.books = books;
         });
     }
-    ngOnInit() {
-        this.getBooks();
-    }
     onSelect(book) {
         this.selectedBook = book;
-    }
-    createBook(title, author, category, cantity, date, image, specifications) {
-        title = title.trim();
-        if (!title) {
-            return;
-        }
-        let book = new book_1.Book();
-        book.author = author;
-        book.title = title;
-        book.date = date;
-        book.image = image;
-        book.category = category;
-        book.cantity = cantity;
-        this.bookService.createBook(book)
-            .then(book => {
-            console.log(book);
-            this.books.push(book);
-            this.selectedBook = null;
-            this.bookTitle = '';
-            this.bookAuthor = '';
-            this.bookCategory = '';
-        });
     }
 };
 BookListComponent = __decorate([

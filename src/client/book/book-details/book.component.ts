@@ -2,14 +2,14 @@
 import { Component } from '@angular/core';
 import { Input } from '@angular/core';
 import { OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap, Params } from '@angular/router';
+// import { ActivatedRoute, ParamMap, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Book } from './book';
 import { BookService } from '../../services/book.service';
 import { BookListComponent } from '../book-list/book-list.component';
 
-import 'rxjs/add/operator/switchMap';
+// import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'book',
@@ -18,23 +18,23 @@ import 'rxjs/add/operator/switchMap';
   providers: [ BookService, BookComponent ]
 })
 export class BookComponent implements OnInit{
-    book: Book;
+    @Input() book: Book;
 
   constructor(
-    private bookService: BookService,
-    private route: ActivatedRoute,
-    private location: Location,
+    // private bookService: BookService,
+    // private route: ActivatedRoute,
+    // private location: Location,
   ) {}
 
   ngOnInit(): void {
 
-    this.route.paramMap
-    .switchMap((params: ParamMap) => this.bookService.getBook(params.get('id')))
-    .subscribe(book => this.book = book);
+    // this.route.paramMap
+    // .switchMap((params: ParamMap) => this.bookService.getBook(params.get('id')))
+    // .subscribe(book => this.book = book);
   }
 
-  goBack(){
-    this.location.back();
-  }
+//   goBack(){
+//     this.location.back();
+//   }
 
 }
