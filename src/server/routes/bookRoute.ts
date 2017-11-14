@@ -7,7 +7,7 @@ let Book = require('../models/Book.model');
 
 let ctrl = new BookController();
 
-bookRouter.get('/book', async (req, res) => {
+bookRouter.get('/', async (req, res) => {
     try{
         let books = await ctrl.getBooks();
         res.status(200).json(books);

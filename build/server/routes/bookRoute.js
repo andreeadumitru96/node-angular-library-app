@@ -13,7 +13,7 @@ const bookController_1 = require("../controllers/bookController");
 exports.bookRouter = express.Router();
 let Book = require('../models/Book.model');
 let ctrl = new bookController_1.BookController();
-exports.bookRouter.get('/book', (req, res) => __awaiter(this, void 0, void 0, function* () {
+exports.bookRouter.get('/', (req, res) => __awaiter(this, void 0, void 0, function* () {
     try {
         let books = yield ctrl.getBooks();
         res.status(200).json(books);
